@@ -25,7 +25,7 @@ export class AppComponent implements OnInit, OnDestroy{
   	ngOnInit(){
 
   		let sub1 =  this.store.select('questions').subscribe(res => {
-  			console.log(res);
+  			// console.log(res);
   			this.questions =  res;
   		});
 

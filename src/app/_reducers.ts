@@ -8,6 +8,7 @@ export const MOVE_TO_TOP = 'MOVE_TO_TOP';
 export function QuestionsReducer(state: Array<Question> = [], action: Action) {
 	switch (action.type) {
 		
+
 		case LOAD_QUESTIONS:
 			return action['payload'];
 
@@ -25,6 +26,7 @@ export function QuestionsReducer(state: Array<Question> = [], action: Action) {
 			return tState;
 
 		case MOVE_TO_TOP:
+			// Move Newly updated Question to top
 			tState = Object.assign([], state);
 			let index = tState.findIndex(q => q.id === action['payload']['id']);
 			if(index > -1){
@@ -52,6 +54,7 @@ export function AnswersReducer(state: Array<Answer> = [], action: Action) {
 
 		case ADD_ANSWER: 
 			
+			// Post lastest answer to top
 			let tState = Object.assign([], state);
 			tState.splice(0,0, action['payload']['data']);
 

@@ -17,18 +17,16 @@ export class CommonService {
     // })
   }
 
-  //Not using this func
+  // Not using this func
+  // This function is to transform questions and answers in such a way to display it in feed
   // getAll(){
   // 	let urls = ['https://api.myjson.com/bins/dck5b', 'https://api.myjson.com/bins/hildr'];
-
   // 	Promise.all([
   // 		fetch(urls[0]).then( res => res.json()).then( res => res.feed_questions),
   // 		fetch(urls[1]).then( res => res.json()).then( res => res.feed_answers)
   // 		]).then(responses => {
   // 			// console.log(responses);
-
   // 			let list: Array<Question> = [];
-
   // 			for(let q of responses[0]){
   // 				let _q: Question = {
   // 					id: q.Id,
@@ -55,11 +53,13 @@ export class CommonService {
   // 		})
   // }
 
+
+  // Gettign Questions 
   getQuestions() {
   	fetch('https://api.myjson.com/bins/dck5b')
   	.then(res => res.json())
   	.then(res => {
-  		console.log(res);
+  		// console.log(res);
   		if( 'feed_questions' in res){
 
   			let list: Array<Question> =  [];
@@ -80,12 +80,13 @@ export class CommonService {
   	});
   }
 
+  // Gettign Answers
   getAnswers() {
 
   	fetch('https://api.myjson.com/bins/hildr')
   	.then(res => res.json())
   	.then(res => {
-  		console.log(res)
+  		// console.log(res)
   		if( 'feed_answers' in res){
   			let list: Array<Answer> =  [];
 
@@ -111,7 +112,10 @@ export class CommonService {
 
   addAnswer(answer: Answer) {
   	
+    // Post answer to a question
   	this.store.dispatch({type: ADD_ANSWER, payload: { data: answer}});
+
+    // to update Question position 
     this.store.dispatch({ type: MOVE_TO_TOP, payload: { id: answer.qId}});
 
   }
