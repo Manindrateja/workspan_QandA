@@ -1,0 +1,27 @@
+mat-card {
+	margin-bottom: 20px;
+}
+.question {
+	cursor: pointer;
+}
+.votes {
+	padding: 0px 20px;
+	.vote {
+		display: inline;
+		cursor: pointer;
+		margin: 0 20px 0 0;
+		color: #ccc;
+		&.active{
+			color: #333;
+		}
+	}
+	i,span {
+		vertical-align: middle;
+	}
+	span {
+		padding: 0px 10px;
+	}
+}
+.answers {
+	padding: 10px 20px 10px 40px;
+}

@@ -1,0 +1,24 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Question</mat-card-title>
+  </mat-card-header>
+  <mat-card-content [routerLink]="[ '/', question?.id]">
+    <p [innerHTML]="question?.text">
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <div class="votes">
+      <div class="vote" (click)="upVote()" [class.active]="question?.isVoted == 'up'">
+        <i class="material-icons">thumb_up</i> 
+        <span>{{question?.upvotes}}</span>
+      </div>
+      <div class="vote" (click)="downVote()" [class.active]="question?.isVoted == 'down'">
+        <i class="material-icons">thumb_down</i> 
+        <span>{{question?.downvotes}}</span>
+      </div>
+      <div class="vote" *ngIf="canComment" (click)="allowComment()">
+        <i class="material-icons">comment</i> Comment
+      </div>
+    </div>
+  </mat-card-actions>
+</mat-card>

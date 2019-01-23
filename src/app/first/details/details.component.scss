@@ -1,0 +1,21 @@
+.answers {
+	padding: 10px 20px 10px 40px;
+}
+
+.showPost {
+	textarea {
+		width: 100%;
+		min-height: 80px;
+		resize: none;
+		&:focus {
+			outline: none;
+		}
+	}
+	.action{
+		text-align: right;
+		button{
+			margin: 10px;
+		}	
+	}
+	
+}

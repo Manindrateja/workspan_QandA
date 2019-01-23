@@ -1,0 +1,10 @@
+<app-question [question]="question" [canComment]="'1'" (showpostsection)="showComment($event)"></app-question>
+<div class="answers">
+	<div *ngIf="showPost" class="showPost">
+		<textarea [(ngModel)]="newanswer"></textarea>
+		<div class="action">
+			<button mat-raised-button color="primary" [mat-dialog-close]="data" [disabled]="!newanswer?.length" (click)="postAnswer(newanswer)">Post Answer</button>
+		</div>
+	</div>
+ 	<app-answer *ngFor="let a of answers" [answer]="a"></app-answer>
+</div>
