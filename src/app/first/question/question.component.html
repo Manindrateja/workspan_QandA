@@ -7,18 +7,17 @@
     </p>
   </mat-card-content>
   <mat-card-actions>
-    <div class="votes">
-      <div class="vote" (click)="upVote()" [class.active]="question?.isVoted == 'up'">
-        <i class="material-icons">thumb_up</i> 
-        <span>{{question?.upvotes}}</span>
-      </div>
-      <div class="vote" (click)="downVote()" [class.active]="question?.isVoted == 'down'">
-        <i class="material-icons">thumb_down</i> 
-        <span>{{question?.downvotes}}</span>
-      </div>
-      <div class="vote" *ngIf="canComment" (click)="allowComment()">
-        <i class="material-icons">comment</i> Comment
-      </div>
-    </div>
+    <button mat-button [color]="question?.isVoted == 'up' ? 'accent' : ''" (click)="upVote()">
+      <mat-icon class="material-icons">thumb_up</mat-icon>
+      <span [style.paddingLeft.px]="5">{{question?.upvotes}}</span>
+    </button>
+    <button mat-button [color]="question?.isVoted == 'down'? 'warn' : ''" (click)="downVote()">
+      <mat-icon class="material-icons">thumb_down</mat-icon>
+      <span [style.paddingLeft.px]="5">{{question?.downvotes}}</span>
+    </button>
+    <button *ngIf="canComment" (click)="allowComment()" mat-button color="primary">
+      <mat-icon class="material-icons">comment</mat-icon>
+      <span [style.paddingLeft.px]="5">Answer</span>
+    </button>
   </mat-card-actions>
 </mat-card>

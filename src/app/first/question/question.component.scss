@@ -1,8 +1,14 @@
+:host{
+	display: block;
+	margin: 10px 0px;
+}
+
 mat-card {
 	margin-bottom: 20px;
 }
 .question {
 	cursor: pointer;
+
 }
 .votes {
 	padding: 0px 20px;

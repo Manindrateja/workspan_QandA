@@ -1,9 +1,12 @@
 <app-question [question]="question" [canComment]="'1'" (showpostsection)="showComment($event)"></app-question>
 <div class="answers">
 	<div *ngIf="showPost" class="showPost">
-		<textarea [(ngModel)]="newanswer"></textarea>
-		<div class="action">
-			<button mat-raised-button color="primary" [mat-dialog-close]="data" [disabled]="!newanswer?.length" (click)="postAnswer(newanswer)">Post Answer</button>
+		<mat-form-field>
+			<mat-label>Leave an answer ( Press Enter to Post, Shift + Enter for new line ) </mat-label>
+			<textarea  matInput placeholder="Leave an answer" [(ngModel)]="newanswer" rows="5" (keyup)="checkEnterKey($event)"></textarea>
+		</mat-form-field>
+		<div class="text-right">
+			<mat-checkbox matInput [(ngModel)]="allowShift">Use Shift + Enter to Post</mat-checkbox>
 		</div>
 	</div>
  	<app-answer *ngFor="let a of answers" [answer]="a"></app-answer>

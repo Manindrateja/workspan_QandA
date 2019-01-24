@@ -65,4 +65,19 @@ export class DetailsComponent implements OnInit,  OnDestroy{
   	this.sub.unsubscribe();
   }
 
+  // Check enter key to Post
+  allowShift: boolean = false;
+  checkEnterKey(e) {
+
+    if(!this.allowShift){
+      if(e.key == 'Enter' && !e.shiftKey)
+        this.postAnswer(this.newanswer);
+    }
+    else{
+      if(e.key == 'Enter' && e.shiftKey)
+        this.postAnswer(this.newanswer);
+    }
+
+  }
+
 }

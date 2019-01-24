@@ -3,12 +3,18 @@
 }
 
 .showPost {
-	textarea {
+	// textarea {
+	// 	width: 100%;
+	// 	min-height: 80px;
+	// 	resize: none;
+	// 	&:focus {
+	// 		outline: none;
+	// 	}
+	// }
+	mat-form-field {
 		width: 100%;
-		min-height: 80px;
-		resize: none;
-		&:focus {
-			outline: none;
+		textarea {
+			resize: none;
 		}
 	}
 	.action{
